@@ -1,0 +1,9 @@
+# vim
+*.vimrc
+
+# Lazy
+lazy-lock.json
+lazyvim.json
+
+# LSP and Linter
+.luarc.json
