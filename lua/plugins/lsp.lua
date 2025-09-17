@@ -29,11 +29,12 @@ return {
       lspconfig.pylsp.setup({capabilities = capabilities})
       lspconfig.rust_analyzer.setup({capabilities = capabilities})
       lspconfig.ansiblels.setup({capabilities = capabilities})
+      lspconfig.terraformls.setup({capabilities = capabilities})
 
       vim.api.nvim_create_autocmd("BufEnter", {
         pattern = "*",
         callback = function()
-          if not next(vim.lsp.get_active_clients()) then
+          if not next(vim.lsp.get_clients()) then
             vim.cmd("LspStart")
           end
         end
@@ -42,10 +43,10 @@ return {
   },
   {
     vim.diagnostic.config({
-      virtual_text = true,
+      virtual_text = false,
       signs = false, -- It conflicts with signify
       underline = true,
-      update_in_insert = true,
+      update_in_insert = false,
       severity_sort = true,
       float = {
         show_header = true,
@@ -53,6 +54,6 @@ return {
         border = "rounded",
       },
     });
-    --vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+    vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
   },
 }

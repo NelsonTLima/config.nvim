@@ -8,6 +8,8 @@ vim.keymap.set(
   'n', '<space>fb', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set(
   'n', '<space>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+vim.keymap.set(
+  'n', '<space>ft', ':TodoTelescope<CR>', { desc = 'Telescope Find TODOs' })
 
 -- Call Neotree
 vim.keymap.set(
