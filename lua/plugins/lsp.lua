@@ -15,6 +15,8 @@ return {
           "pyright", "pylsp", -- Python
           "rust_analyzer", -- Rust
           "ansiblels", -- ansiblels
+          "ts_ls", "eslint", -- TypeScript Javascript
+          "dockerls",
         }
       })
     end
@@ -29,12 +31,16 @@ return {
       lspconfig.pylsp.setup({capabilities = capabilities})
       lspconfig.rust_analyzer.setup({capabilities = capabilities})
       lspconfig.ansiblels.setup({capabilities = capabilities})
-      lspconfig.terraformls.setup({capabilities = capabilities})
+      lspconfig.ts_ls.setup({capabilities = capabilities})
+      lspconfig.eslint.setup({capabilities = capabilities})
+      lspconfig.volar.setup({ capabilities = capabilities})
+      lspconfig.dockerls.setup({ capabilities = capabilities})
+      lspconfig.dartls.setup({ capabilities = capabilities})
 
       vim.api.nvim_create_autocmd("BufEnter", {
         pattern = "*",
         callback = function()
-          if not next(vim.lsp.get_clients()) then
+          if not next(vim.lsp.get_active_clients()) then
             vim.cmd("LspStart")
           end
         end
