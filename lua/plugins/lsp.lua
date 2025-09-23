@@ -25,26 +25,7 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
-      local lspconfig = require("lspconfig")
-      lspconfig.lua_ls.setup({capabilities = capabilities})
-      lspconfig.pyright.setup({capabilities = capabilities})
-      lspconfig.pylsp.setup({capabilities = capabilities})
-      lspconfig.rust_analyzer.setup({capabilities = capabilities})
-      lspconfig.ansiblels.setup({capabilities = capabilities})
-      lspconfig.ts_ls.setup({capabilities = capabilities})
-      lspconfig.eslint.setup({capabilities = capabilities})
-      lspconfig.volar.setup({ capabilities = capabilities})
-      lspconfig.dockerls.setup({ capabilities = capabilities})
-      lspconfig.dartls.setup({ capabilities = capabilities})
-
-      vim.api.nvim_create_autocmd("BufEnter", {
-        pattern = "*",
-        callback = function()
-          if not next(vim.lsp.get_active_clients()) then
-            vim.cmd("LspStart")
-          end
-        end
-      })
+      vim.lsp.config("*", {capabilities = capabilities})
     end
   },
   {
