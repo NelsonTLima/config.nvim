@@ -1,0 +1,7 @@
+{
+  // Only tell lua-language-server that "vim" is a defined global
+  "Lua.diagnostics.globals": ["vim"],
+
+  // Avoid prompts about third-party libraries
+  "Lua.workspace.checkThirdParty": false
+}
