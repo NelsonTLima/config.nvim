@@ -49,8 +49,8 @@ return {
   },
   {
     vim.diagnostic.config({
-      virtual_text = false,
-      signs = false, -- It conflicts with signify
+      virtual_text = true,
+      signs = true, -- Conflicts with signify
       underline = true,
       update_in_insert = false,
       severity_sort = true,
