@@ -23,7 +23,7 @@ vim.keymap.set(
 vim.keymap.set(
   'i', '<F3>', '<esc>:below term<CR>', { desc = "Below terminal" })
 vim.keymap.set(
-  't', '<Esc>', [[<C-\><C-n>]], { noremap = true })
+  't', '<F3>', [[<C-\><C-n>]], { noremap = true })
 
 -- Avoid displaying numbers in terminal
 vim.api.nvim_create_autocmd("TermOpen", {
